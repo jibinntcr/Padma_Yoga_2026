@@ -1,0 +1,206 @@
+{
+  "himalayan-yoga.html": {
+    "title": "Himalayan Yoga",
+    "previous": null,
+    "next": "ashtanga-yoga.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Himalayan-yoga-min.jpg",
+    "description": "The Himalayan tradition of Yoga meditation combines the wisdom of Patanjali’s Yoga sutras, practices of tantra and other oral instructions and initiatory experiences. Himalayan teachings are unique and authentic as it is shared from sages. Teaching includes: Purification of thoughts, asanas,mindfulness, breath awareness, pratyahara, japa, shavasana, dharana, dhyana/ meditation. ",
+    "meta": {
+      "metaTitle": "Himalayan Yoga | Traditional Meditation Practices",
+      "metaDescription": "Discover authentic Himalayan yoga combining Patanjali's wisdom with tantric practices and oral traditions from sages.",
+      "metaKeywords": "himalayan yoga, meditation, patanjali, tantra, yoga sutras"
+    }
+  },
+  "ashtanga-yoga.html": {
+    "title": "Ashtanga Yoga",
+    "previous": "himalayan-yoga.html",
+    "next": "surya-namaskaram.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Ashtanga-yoga-min.jpg",
+    "description": "Ashtanga yoga teaches one, how to be finally leading to liberation. It is a mix of external and internal practices. Program includes topics like Moral code of yoga- yamas and Niyamas, postures, pranayama, senses withdrawal, attention practices leading to meditation and beyond.",
+    "meta": {
+      "metaTitle": "Ashtanga Yoga | Path to Liberation",
+      "metaDescription": "Master the eight limbs of yoga through Ashtanga practices combining moral codes, postures, and meditation techniques.",
+      "metaKeywords": "ashtanga yoga, eight limbs, yamas, niyamas, pranayama"
+    }
+  },
+  "surya-namaskaram.html": {
+    "title": "Surya Namaskaram/ Sun Salutation",
+    "previous": "ashtanga-yoga.html",
+    "next": "chakra-meditation.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Surya-Namaskaram.jpg",
+    "description": "Surya Namaskar, which is known as Sun Salutation, is essentially about building a dimension within you where your physical cycles are in sync with the sun’s cycle which run at about twelve-and-a-quarter years. It is not by accident but by intent that it has been structured with twelve postures or twelve asanas in it. If your system is in a certain level of vibrancy and readiness, and in a good state of receptivity, then naturally your cycle will be in sync with the solar cycle.",
+    "meta": {
+      "metaTitle": "Surya Namaskaram | Solar Cycle Synergy",
+      "metaDescription": "Align your body's rhythm with the sun's cycle through the twelve postures of Surya Namaskar sun salutation.",
+      "metaKeywords": "surya namaskar, sun salutation, solar cycle, asanas, yoga postures"
+    }
+  },
+  "chakra-meditation.html": {
+    "title": "Chakra Meditation",
+    "previous": "surya-namaskaram.html",
+    "next": "mantra-meditation.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Chakra-meditation-min.jpg",
+    "description": "Know the deep inner science of chakras, it’s importance, how it functions and experience theses energy wheels. Understanding on subtle channels, associated pranas and chakras is a part of self knowledge to realise our true being.Chakra awareness, activations, self healing, mantras etc are part of this program.",
+    "meta": {
+      "metaTitle": "Chakra Meditation | Explore Your Energy",
+      "metaDescription": "Discover the science of chakras and activate your inner energy with our comprehensive Chakra Meditation program.",
+      "metaKeywords": "chakra, meditation, energy, self-healing, yoga"
+    }
+  },
+  "mantra-meditation.html": {
+    "title": "Mantra Meditation",
+    "previous": "chakra-meditation.html",
+    "next": "connect-your-master.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Mantra-meditation-min.jpg",
+    "description": "The science of mantra is based on an understanding of sound vibrations which are primarily centred in various stations. Ultimate purpose of mantra is to go into supreme silence. Here we integrate mantra chanting and meditation with complete awareness and practising it to apply in day to day life for a balanced journey.This is a special practice of Himalayan yoga.",
+    "meta": {
+      "metaTitle": "Mantra Meditation | Silence Through Sound",
+      "metaDescription": "Experience the transformative power of sound with our Mantra Meditation practice, designed to lead you into supreme silence.",
+      "metaKeywords": "mantra, meditation, sound, silence, Himalayan yoga"
+    }
+  },
+  "connect-your-master.html": {
+    "title": "Connect Your Master",
+    "previous": "mantra-meditation.html",
+    "next": "mother-of-all.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Connect-your-Master-min.jpg",
+    "description": "Master/ Guru is a guide initially for a spiritual practitioner and more than that once we uplift ourselves from student to a disciple. With a form he is called Master, and without form he is your own inner true guiding voice. Meditation on Jesus, Buddha, Krishna, or any forms can be practiced. This meditation is designed to practice connecting to our own inner master in all situations of life. Once touched by a Master out of grace, then we will be in full potential and joy.",
+    "meta": {
+      "metaTitle": "Connect Your Master | Inner Guidance Meditation",
+      "metaDescription": "Connect with your inner master and discover guidance through meditation that transcends traditional boundaries.",
+      "metaKeywords": "master, guru, meditation, inner guidance, spiritual"
+    }
+  },
+  "mother-of-all.html": {
+    "title": "Mother of All",
+    "previous": "connect-your-master.html",
+    "next": "shivoham.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Mother-of-all-min.jpg",
+    "description": "We all love mother and what if we can realise the mother of all or Universal mother, One who nurtures us, protects us, guides us in every act and transactions.Let’s meditate together to realise that we are part of her grace every moment. Meditation on mother would help us in loving ourselves and others by staying connected with the universe.",
+    "meta": {
+      "metaTitle": "Mother of All | Universal Nurturing Meditation",
+      "metaDescription": "Experience the nurturing power of the Universal Mother through meditation, and discover a deeper connection with life.",
+      "metaKeywords": "mother, meditation, universal, nurturing, connection"
+    }
+  },
+  "shivoham.html": {
+    "title": "Shivoham",
+    "previous": "mother-of-all.html",
+    "next": "reiki-meditation.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Shivoham-min.jpg",
+    "description": "Learn the art of mental worship and meditation to abide in that unmoving, unchanging, ever pervading principle called Shiva, the Ultimate. Shivoham meditation is for intermediate - advanced practitioners who wants to strengthen their practice and journey in spirituality. ",
+    "meta": {
+      "metaTitle": "Shivoham | Meditation on the Ultimate",
+      "metaDescription": "Deepen your spiritual journey with Shivoham meditation, a practice designed for those seeking to embody the timeless essence of Shiva.",
+      "metaKeywords": "shivoham, meditation, shiva, spiritual, advanced"
+    }
+  },
+  "reiki-meditation.html": {
+    "title": "Reiki Meditation",
+    "previous": "shivoham.html",
+    "next": "full-moon-meditation.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Reiki-meditation-min.jpg",
+    "description": "Through the systematic meditative methods of reiki, colours, visualisation we provide you a self healing and meditation to touch the deeper aspects of life force energy.Realising life as a play of energy which ever moving and changing, we train ourselves to become undisturbed. Positive affirmations, manifestations, visualisations are part of this course.",
+    "meta": {
+      "metaTitle": "Reiki Meditation | Self-Healing Energy",
+      "metaDescription": "Explore self-healing and energy transformation with Reiki Meditation, incorporating visualization and affirmations.",
+      "metaKeywords": "reiki, meditation, self-healing, energy, visualization"
+    }
+  },
+  "full-moon-meditation.html": {
+    "title": "Full Moon Meditation",
+    "previous": "reiki-meditation.html",
+    "next": "here-and-now-self-enquiry-meditation.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Full-moon-meditation-min.jpg",
+    "description": "Full moon is the time to amplify and channelise our energies in right direction for a balanced life. It’s time when nature is full and near to completion, so full moon meditation will help us in reaching that potentiality wherever you are. Starting or ending a full moon day with meditation is really beneficial for us.",
+    "meta": {
+      "metaTitle": "Full Moon Meditation | Align with Lunar Energy",
+      "metaDescription": "Harness the energy of the full moon through meditation, and channel your inner potential for a balanced life.",
+      "metaKeywords": "full moon, meditation, lunar, energy, balance"
+    }
+  },
+  "here-and-now-self-enquiry-meditation.html": {
+    "title": "Here & Now: Self Enquiry Meditation",
+    "previous": "full-moon-meditation.html",
+    "next": "deep-relaxation.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Here-&-Now---Self-enquiry-min.jpg",
+    "description": "Searching for oneself by going outside doesn’t help. It explains that if one really wants to understand the world and the universe, he should understand himself on all levels first. This meditation explains how to begin the process by learning about one’s own body, mind and to other subtler states of life. This program is designed for beginners to advanced practitioners and non practitioners to examine life.",
+    "meta": {
+      "metaTitle": "Here & Now Meditation | Self Enquiry",
+      "metaDescription": "Embark on a journey of self-discovery with our Here & Now meditation, designed to foster deep self-enquiry and awareness.",
+      "metaKeywords": "self enquiry, meditation, here and now, self-discovery, mindfulness"
+    }
+  },
+  "deep-relaxation.html": {
+    "title": "Deep Relaxation",
+    "previous": "here-and-now-self-enquiry-meditation.html",
+    "next": "stress-management.html",
+    "image": "../assets/images/yoga/services/Himalayan Yoga.zip - Deep Relaxation.png",
+    "description": "Guided deep relaxation practices is for all who needs to find balance in life, fatigue,to overcome stress and depression, recharge body mind and breath. These effective subtle body techniques will help you to overcome all blockages in life and guide you to relax every time at any place. This is also a preparation for higher meditations.",
+    "meta": {
+      "metaTitle": "Deep Relaxation | Stress Relief Meditation",
+      "metaDescription": "Find balance and relief with guided deep relaxation techniques, designed to help overcome stress and prepare you for deeper meditation.",
+      "metaKeywords": "deep relaxation, meditation, stress relief, guided, balance"
+    }
+  },
+  "stress-management.html": {
+    "title": "Stress Management",
+    "previous": "deep-relaxation.html",
+    "next": "my-therapies.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Stress-Management-min.jpg",
+    "description": "Understanding stress, anxiety, anger is very much important to overcome it. Dealing with medicines is not the way. Here we investigate how, why and what are these disturbing emotions and then we use techniques to overcome it systematically by inducing right lifestyle, breathing techniques, relaxation’s etc.",
+    "meta": {
+      "metaTitle": "Stress Management | Overcome Anxiety & Anger",
+      "metaDescription": "Manage stress, anxiety, and anger through meditation and lifestyle techniques that address the root causes of emotional turbulence.",
+      "metaKeywords": "stress management, meditation, anxiety, anger, relaxation"
+    }
+  },
+  "my-therapies.html": {
+    "title": "MY Therapies",
+    "previous": "stress-management.html",
+    "next": "vedic-chanting.html",
+    "image": "../assets/images/yoga/services/Himalayan Yoga.zip - Meditation therapy.png",
+    "description": "By the support of meditation, relaxation and yoga we work closely with people to manage their physical, emotional, mental and energy challenges in life.Discipline, regular practice, right food and trust is the key to face life and its challenges.",
+    "meta": {
+      "metaTitle": "MY Therapies | Holistic Wellness",
+      "metaDescription": "Explore MY Therapies, a holistic approach combining meditation, yoga, and relaxation techniques to overcome life's challenges.",
+      "metaKeywords": "therapies, meditation, yoga, relaxation, holistic, wellness"
+    }
+  },
+  "vedic-chanting.html": {
+    "title": "Vedic Chanting",
+    "previous": "my-therapies.html",
+    "next": "students-yoga.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Vedic-Chanting.jpg",
+    "description": "Vedic chanting improves focus; supports memory and mental discipline; improves listening and communication skills; improves breathing capacity; reduces mental and emotional agitation or energizes and activates. Many people find their voice empowered. Our teachers help you learn chanting basics with proper pronunciation and meter. We are reviving our old traditions. Join us to experience!",
+    "meta": {
+      "metaTitle": "Vedic Chanting | Ancient Sound Practice",
+      "metaDescription": "Discover traditional Vedic chanting techniques to enhance focus, memory, and breathing while connecting with ancient wisdom.",
+      "metaKeywords": "vedic chanting, mantra, focus, breathing, tradition"
+    }
+  },
+  "students-yoga.html": {
+    "title": "Students Yoga",
+    "previous": "vedic-chanting.html",
+    "next": "stress-free-workspace.html",
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Our-Students-min.jpg",
+    "description": "Let our children grow up naturally and joyfully which is their true nature. This program enhances their joy, attention, confidence by applying simple yoga practices, breathing techniques and meditations. Let’s teach them today that stress is a big lie!",
+    "meta": {
+      "metaTitle": "Students Yoga | Youth Wellness Program",
+      "metaDescription": "Child-focused yoga program promoting natural joy, concentration, and stress-free living through simple practices.",
+      "metaKeywords": "yoga for kids, student wellness, children meditation, stress relief"
+    }
+  },
+  "stress-free-workspace.html": {
+    "title": "Stress Free Workspace",
+    "previous": "students-yoga.html",
+    "next": null,
+    "image": "../assets/images/yoga/services/Himalayan-Yoga-Stress-free-Workplace.jpg",
+    "description": "Lets keep our workspace a safe place and not a stress space. If we are not in balance because of body, mind imbalances we lose momentum, then we worry. Using simple effective techniques we could manage our balance,relationships,be productive and help others. ",
+    "meta": {
+      "metaTitle": "Workplace Stress Management | Office Yoga",
+      "metaDescription": "Create balanced, productive work environments through stress management techniques and mindful practices.",
+      "metaKeywords": "workplace yoga, office stress, productivity, team balance"
+    }
+  }
+}
