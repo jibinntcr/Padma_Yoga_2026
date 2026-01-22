@@ -770,3 +770,172 @@ a.item-link {
 .text-title H2 {
   color: var(--e-global-color-primary);
 }
+
+
+
+
+
+
+
+
+
+
+#whatsapp-container {
+    position: fixed;
+    right: 20px; /* വശത്ത് നിന്ന് അല്പം മാറ്റി നിർത്തിയാൽ കൂടുതൽ ഭംഗി തോന്നും */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* വാട്ട്‌സാപ്പ് ബട്ടൺ കൂടുതൽ റൗണ്ട് ആക്കി */
+.whatsapp-btn {
+    background: #25d366;
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* ഫുൾ റൗണ്ട് */
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+/* ആരോ ബട്ടൺ ഐക്കണിന് മുകളിൽ ചെറിയൊരു വട്ടത്തിൽ */
+#toggle-btn {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: #333;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border: 2px solid white;
+    font-weight: bold; /* ആരോ ചിഹ്നം കൂടുതൽ വ്യക്തമാകാൻ */
+    transition: transform 0.3s ease; /* ചിഹ്നം മാറുമ്പോൾ ചെറിയൊരു ആനിമേഷൻ */
+
+}
+
+/* ഹൈഡ് ചെയ്യുമ്പോൾ ഉള്ള സ്റ്റൈൽ */
+#whatsapp-container.hidden {
+    right: -70px; /* ബട്ടൺ മൊത്തമായി മറയുന്നു */
+}
+
+/* ഹൈഡ് ആയാലും ആരോ മാത്രം പുറത്ത് നിൽക്കാൻ */
+#whatsapp-container.hidden #toggle-btn {
+    left: -35px; /* ആരോ ബട്ടൺ മാത്രം സ്ക്രീനിൽ ബാക്കി നിൽക്കും */
+    top: 20px;
+    background: #25d366;
+}
+
+
+
+
+/* 1. Target all rows inside the blog container */
+#blog .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 20px; /* Space between the heading and the cards */
+}
+
+/* 2. Ensure every column behaves as a flex box */
+#blog .col-xl-4, #blog .col-lg-4 {
+    display: flex !important;
+    margin-bottom: 30px; /* This creates the gap between the cards vertically */
+}
+
+/* 3. Force the card (post-item) to stretch to the tallest neighbor */
+#blog .post-item {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #fff;
+    border: 1px solid #eee;
+    float: none !important; /* Removes template float which breaks height */
+}
+
+/* 4. Make the description area fill the empty space */
+#blog .post-item-description {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    padding: 25px !important;
+}
+
+/* 5. Push the "Read More" link to the very bottom so buttons align */
+#blog .post-item-description p {
+    flex-grow: 1 !important;
+    margin-bottom: 20px !important;
+}
+
+/* 6. Clean up the link styling */
+#blog .item-link {
+    margin-top: auto !important; /* Explicitly pushes to bottom */
+}
+
+
+
+
+/* ============================================= */
+/* MOBILE MENU: PURE BLACK & WHITE (High Contrast) */
+/* ============================================= */
+@media (max-width: 991px) {
+    
+    /* 1. The Container - Pure White */
+    .navbar-collapse {
+        background-color: #ffffff !important;
+        padding: 10px 0;
+        margin-top: 10px;
+        border-top: 2px solid #000000; /* Solid Black Line at top */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    /* 2. The Link Text - PURE BLACK */
+    .navbar-nav .nav-link {
+        color: #000000 !important; /* Pure Black */
+        font-family: 'Playfair Display', serif !important;
+        font-size: 18px !important;
+        font-weight: 600 !important; /* Made it slightly bolder */
+        padding: 14px 20px !important;
+        border-bottom: 1px solid #f0f0f0; /* Very light grey divider */
+        transition: all 0.3s ease;
+    }
+
+    /* 3. Active & Hover State - Blue Text */
+    .navbar-nav .nav-item.active .nav-link,
+    .navbar-nav .nav-link:hover {
+        color: #2389c4 !important; /* Brand Blue only on touch */
+        background-color: #f9f9f9 !important;
+        padding-left: 30px !important; /* Slide animation */
+    }
+
+    /* 4. The "Our Shop" Button - Black Button */
+    .navbar-nav .nav-item .shop-menu-btn {
+        margin: 20px 20px 10px 20px;
+        background-color: #000000 !important; /* Solid Black Button */
+        color: #ffffff !important; /* White Text */
+        border-radius: 50px;
+        text-align: center;
+        padding: 12px !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Shop button hover */
+    .navbar-nav .nav-item .shop-menu-btn:hover {
+        background-color: #2389c4 !important; /* Turns Blue on hover */
+        color: #ffffff !important;
+        padding-left: 12px !important; /* Resets padding */
+    }
+}
