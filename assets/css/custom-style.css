@@ -939,3 +939,206 @@ a.item-link {
         padding-left: 12px !important; /* Resets padding */
     }
 }
+
+
+/* --- 2. PRODUCT CARDS & LAYOUT --- */
+
+/* The Card Itself */
+.product-card {
+    transition: transform 0.3s;
+    height: 100%;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Fixed Image Container (Ensures all images look uniform) */
+.product-image-container {
+    height: 280px; 
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid #f9f9f9;
+    position: relative;
+}
+
+/* The Image Object */
+.card-carousel-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain; /* No cropping */
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+.product-card:hover .card-carousel-img {
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* Price Tag Styling */
+.price-tag {
+    color: #2389c4;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- 3. FLIPKART STYLE ARROWS --- */
+
+/* Positioning */
+.product-card .carousel-control-prev,
+.product-card .carousel-control-next {
+    width: 40px; 
+    opacity: 1; 
+    top: 50%;   
+    transform: translateY(-50%); 
+    bottom: auto; 
+    z-index: 10;
+}
+.product-card .carousel-control-prev { left: 10px; }
+.product-card .carousel-control-next { right: 10px; }
+
+/* The White Circle Button */
+.flipkart-arrow-circle {
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s ease;
+}
+.flipkart-arrow-circle i {
+    color: #333;
+    font-size: 14px;
+}
+
+/* Hover State */
+.carousel-control-prev:hover .flipkart-arrow-circle,
+.carousel-control-next:hover .flipkart-arrow-circle {
+    background-color: #2389c4;
+    border-color: #2389c4;
+    box-shadow: 0 4px 12px rgba(35, 137, 196, 0.4);
+}
+.carousel-control-prev:hover .flipkart-arrow-circle i,
+.carousel-control-next:hover .flipkart-arrow-circle i {
+    color: #ffffff;
+}
+
+/* --- 4. FLOATING CART ICON & ANIMATIONS --- */
+
+/* The Floating Button */
+.cart-float-icon {
+    position: fixed;
+    bottom: 120px; /* Sits above the sticky bar */
+    right: 20px;
+    background: #2389c4;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9998;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.cart-float-icon:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* The Red Count Badge */
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+
+
+
+
+/* --- 5. STICKY BOTTOM BAR --- */
+
+.sticky-cart-bar {
+    position: fixed;
+    bottom: -120px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 -5px 30px rgba(0,0,0,0.15); 
+    padding: 10px 0;
+    z-index: 2147483647 !important; /* Highest Z-Index */
+    transition: bottom 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.sticky-cart-bar.visible {
+    bottom: 0;
+}
+
+/* Thumbnails */
+.cart-thumbnails {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.mini-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 2px;
+}
+.more-items-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2389c4;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Go To Cart Button */
+.go-to-cart-btn {
+    background: #2389c4;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(35, 137, 196, 0.3);
+}
+.go-to-cart-btn:hover {
+    background: #1b6d9d;
+    color: white;
+    text-decoration: none;
+}
