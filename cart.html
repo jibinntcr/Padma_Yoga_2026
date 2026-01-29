@@ -79,53 +79,53 @@
     </div>
 
     <div class="container py-5">
-        <div class="services_content text-center mb-4">
-            <h2>Finalize Enquiry</h2>
+        <div class="services_content text-center mb-5">
+            <h2 style="font-weight:700;">Finalize Your Order</h2>
         </div>
 
-        <div class="table-responsive cart-table-container">
-            <table class="table table-bordered">
+        <div class="table-responsive cart-table-container mb-5">
+            <table class="table mb-0">
                 <thead class="cart-table-head">
                     <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Total</th>
-                        <th>Action</th>
+                        <th style="width: 40%;">Product</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody id="cart-table-body">
                     </tbody>
             </table>
-            <div class="text-right p-3">
-                <h4 class="cart-total-text">
-                    Total Estimate: <span id="grand-total">₹0</span>
+            <div class="p-4 text-right bg-white border-top">
+                <h4 style="color:#2d3436; font-weight:700;">
+                    Grand Total: <span id="grand-total" style="color:#2389c4;">₹0</span>
                 </h4>
             </div>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card enquiry-card">
-                    <div class="card-body p-4">
+                <div class="card enquiry-card p-4">
+                    <div class="card-body">
                         <form id="enquiry-form" onsubmit="sendWhatsAppEnquiry(event)">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" id="cust-name" class="form-control" required placeholder="Your Name" />
+                                    <input type="text" id="cust-name" class="form-control" required placeholder="Your Name" style="padding: 12px; border-radius: 8px;">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" id="cust-location" class="form-control" required placeholder="Location (City)" />
+                                    <input type="text" id="cust-location" class="form-control" required placeholder="Location (City)" style="padding: 12px; border-radius: 8px;">
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label>How should we contact you?</label>
-                                <select id="cust-contact-method" class="form-control">
+                            <div class="mb-4">
+                                <label style="font-weight:600; font-size:14px; color:#555;">Preferred Contact Method</label>
+                                <select id="cust-contact-method" class="form-control" style="height:45px; border-radius:8px;">
                                     <option value="WhatsApp">WhatsApp</option>
                                     <option value="Email">Email</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-success w-100 py-3 btn-whatsapp-form">
-                                <i class="fa-brands fa-whatsapp"></i> Send Enquiry via WhatsApp
+                            <button type="submit" class="btn btn-success w-100 py-3 btn-whatsapp-form" style="font-weight:600; border-radius:10px;">
+                                <i class="fa-brands fa-whatsapp"></i> Confirm & Send via WhatsApp
                             </button>
                         </form>
                     </div>
@@ -133,8 +133,6 @@
             </div>
         </div>
     </div>
-
-    <div id="custom-toast">Notification</div>
 
     <div id="footer"></div>
 
