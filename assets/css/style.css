@@ -762,7 +762,7 @@ li {
   position: absolute;
 }
 .get_in_touch_section::after {
-  background: url(../images/get_in_touch_image.png);
+  background: url(../images/get_in_touch_image2.jpeg);
   content: "";
   width: 50%;
   height: 806px;
@@ -874,6 +874,7 @@ textarea {
   left: 80px;
   top: 202px;
   margin-right: -30px;
+  
 }
 
 /* Home Page Pricing Plans Section Style */
