@@ -39,7 +39,7 @@
                                 <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
                                 <li class="nav-item"><a class="nav-link" href="./team.html">Team</a></li>
                                 <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
-                                <li class="nav-item active"><a class="nav-link shop-menu-btn" href="./shop.html">Our Shop <i class="fa-solid fa-cart-shopping ml-1"></i></a></li>
+                                <li class="nav-item active"><a class="nav-link" href="./shop.html">Our Shop <i class="fa-solid fa-cart-shopping ml-1"></i></a></li>
                             </ul>
                         </div>
                     </nav>
@@ -189,7 +189,7 @@
                 btn.html('<i class="fa-solid fa-spinner fa-spin"></i> Sending...').prop("disabled", true);
 
                 $.ajax({
-                    url: "https://script.google.com/macros/s/AKfycbwPPrvp5ZfEIjhqkNC8CUghlTDDdf90F4ricjkUOVJQh-K2MY-JQ0-L4D1vt8GFpF1E/exec",
+                    url: "https://script.google.com/macros/s/AKfycbz8ojFpzW0A1xpeQiYXECxDSCt54CVpbu9QKJgR4dpbvrMXUyOW7qLt1VJT6de_dcJh/exec",
                     data: { form_type: 'order', name: name, location: loc, email: email, total_amount: total, order_details: orderList },
                     method: "POST",
                     success: function(res) {
