@@ -153,5 +153,63 @@
     <script src="assets/js/footer.js"></script>
     <script src="assets/js/whatsApp.js"></script>
     <script src="assets/js/shop.js"></script>
+
+<script>
+$(document).ready(function() {
+    $("#enquiry-form").submit((e) => {
+        e.preventDefault();
+
+        // 1. GENERATE ORDER SUMMARY (Scans your cart table)
+        var orderList = "";
+        $("#cart-table-body tr").each(function() {
+            var prod = $(this).find("td:eq(0)").text(); 
+            var qty = $(this).find("input").val() || $(this).find("td:eq(2)").text();
+            var price = $(this).find("td:eq(3)").text();
+            if(prod) {
+                orderList += `• ${prod} [Qty: ${qty}] - ${price}\n`;
+            }
+        });
+
+        // 2. PREPARE DATA
+        var formData = {
+            form_type: 'order', // <--- This sends it to the "Orders" sheet
+            name: $("#cust-name").val(),
+            location: $("#cust-location").val(),
+            email: $("#cust-email").val(),
+            total_amount: $("#grand-total").text(),
+            order_details: orderList
+        };
+
+        // 3. SEND TO GOOGLE
+        var submitButton = $("button[type='submit']");
+        var originalText = submitButton.html();
+        submitButton.html('Sending...').prop("disabled", true);
+
+        $.ajax({
+            // I HAVE PASTED YOUR URL HERE:
+            url: "https://script.google.com/macros/s/AKfycbwPPrvp5ZfEIjhqkNC8CUghlTDDdf90F4ricjkUOVJQh-K2MY-JQ0-L4D1vt8GFpF1E/exec",
+            
+            data: formData,
+            method: "POST",
+            success: function(response) {
+                if (response.result === "success") {
+                    alert("Order placed successfully! Check your email.");
+                    $("#enquiry-form")[0].reset();
+                } else {
+                    alert("Error processing order. Please try again.");
+                }
+                submitButton.html(originalText).prop("disabled", false);
+            },
+            error: function() {
+                alert("Connection failed. Please check your internet.");
+                submitButton.html(originalText).prop("disabled", false);
+            }
+        });
+    });
+});
+</script>
+
+
+
 </body>
 </html>
