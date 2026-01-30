@@ -1,14 +1,13 @@
 /* ========================================================
    1. PRODUCT DATABASE
-   Updated to support multiple images for specific products.
    ======================================================== */
 const products = [
     {
         id: 1,
-        name: "Meditation Cards",
+        name: "Meditation / Contemplation Cards",
         price: 200,
-        short: "Gentle companions for clarity.",
-        desc: "Meditation Cards act as gentle companions for professionals, students, and spiritual practitioners. Each card carries a short quote or mindful reminder designed to shift your awareness from stress to stillness.",
+        short: "Gentle companions offering a moment of clarity.",
+        desc: "Meditation Cards act as gentle companions for professionals, students, and spiritual practitioners—offering a moment of clarity amidst a busy day.<br><br>Each card carries a short quote, a mindful reminder, or a contemplative thought, designed to shift your awareness from stress to stillness, from reaction to reflection.<br><br>Meditation Cards are not just inspirational quotes—they are daily anchors for the mind, inviting you to pause, breathe, and return to your centre. A small message. A big shift in consciousness.",
         images: ["assets/images/shop/cards.jpeg", "assets/images/shop/cards2.jpeg"] 
     },
     {
@@ -16,126 +15,116 @@ const products = [
         name: "Natural Organic Vibhuti",
         price: 100,
         unit: "50g",
-        short: "Sacred ash for purity and protection.",
-        desc: "Vibhuti is a powerful yogic tool symbolizing purification. Made from natural organic sources through traditional methods.",
+        short: "Sacred Ash for Purity and Protection.",
+        desc: "Vibhuti, the sacred ash, is not just a ritual substance—it is a powerful yogic tool symbolizing purification, awareness, and surrender to the Divine. When it is made from natural, organic sources through traditional methods, its energetic quality becomes highly supportive for one’s spiritual and daily life.<br><br>• Purifies Aura & Space<br>• Reminder of Impermanence<br>• Enhances Spiritual Practice<br>• Traditional Ayurvedic Benefits<br>• Symbol of Devotion & Protection",
         images: ["assets/images/shop/vibhuti.jpeg"]
     },
     {
         id: 3,
         name: "Meditation Seat",
         price: 750,
-        short: "Align your body and settle your mind.",
-        desc: "A steady body leads to a steady mind. This seat supports your posture, eases discomfort, and allows energy to flow naturally.",
+        short: "Align Your Body, Settle Your Mind.",
+        desc: "A steady body leads to a steady mind. The right meditation seat or cushion supports your posture, eases discomfort, and allows energy to flow naturally during your practice. Whether you are a beginner or a seasoned practitioner, having a proper seat creates a stable foundation for deeper stillness.<br><br>• Supports Natural Spine Alignment<br>• Enhances Comfort & Stability<br>• Improves Breath & Energy Flow<br>• Prevents Restlessness & Distraction<br>• Cultivates a Sacred Space",
         images: ["assets/images/shop/seat.jpeg"]
     },
     {
         id: 4,
         name: "Rudraksha Japa Mala",
         price: 240,
-        short: "A spiritual companion for focus.",
-        desc: "Not just a counting tool, but a carrier of energy. Each bead holds a natural field that stabilizes the mind.",
+        short: "Spiritual companion carrying ancient yogic wisdom.",
+        desc: "A Rudraksha Mala is not just a counting tool for mantra—it is a spiritual companion, carrying the vibrations of ancient yogic wisdom and the energy of Shiva. Each bead holds a natural electromagnetic field that stabilizes the mind and harmonizes the body’s bio-energy.<br><br>• Enhances Focus in Japa<br>• Holds and Amplifies Mantra Energy<br>• Balances Nervous System & Calms the Mind<br>• Symbol of Protection & Grace<br>• Creates a Meditative Rhythm<br><br>To hold a Rudraksha Mala is to carry a reminder—stay centered, stay connected, and let every breath become a mantra.",
         images: ["assets/images/shop/mala.jpeg"]
     },
     {
         id: 5,
         name: "Journaling Diary",
         price: 280,
-        short: "A mirror for clarity and growth.",
-        desc: "Journaling creates a sacred pause to reflect and realign. Use this as a Sadhana Journal to record insights.",
+        short: "A Mirror For Clarity, Growth & Transformation.",
+        desc: "In a fast-moving life, thoughts often stay cluttered in the mind. Journaling creates a sacred pause—a moment to reflect, release, and realign. Whether you are a student, a working professional, or a seeker on the spiritual path, a diary becomes more than pages—it becomes a space for self-awareness and conscious living.<br><br>• Becomes a personal Sadhana Journal to record insights, mantra experiences, and inner shifts.<br>• Deepens awareness by observing patterns of thoughts, triggers, and emotional reactions.<br>• Serves as a sacred companion on the inner journey—transforming every reflection into a step toward higher consciousness.",
         images: ["assets/images/shop/diary.jpeg", "assets/images/shop/diary2.jpeg"]
     },
     {
         id: 6,
         name: "Chakra Stones",
         price: 900,
-        short: "Tools for intuition and healing.",
-        desc: "Enhance emotional stability and deepen meditation. These stones promote physical well-being.",
+        short: "Powerful tools for Intuition and Self-awareness.",
+        desc: "Chakra stones are powerful tools for: Intuition, Self-awareness, Inner clarity, Connection to higher consciousness.<br><br>Wear them, meditate with them, keep them in your space, or use them for healing practices.<br><br>• Enhances emotional stability<br>• Deepens meditation & awareness<br>• Promotes physical well being<br>• Encourages positive energy flow<br>• Boosts confidence & creativity<br>• Strengthens relationships",
         images: ["assets/images/shop/stones.jpeg"]
     },
     {
         id: 7,
         name: "Devi Mobile Pop Holder",
         price: 340,
-        short: "Sacred presence on your device.",
-        desc: "Features sacred designs of Devi & Divinity. Reminds you of higher awareness every time you hold your phone.",
+        short: "Adorn your mobile with sacred presence.",
+        desc: "Adorn your mobile with the sacred presence of Devi and Divine energies.<br>This mobile pop-up blends spiritual aesthetics with everyday functionality, reminding you of higher awareness each time you hold your phone.<br><br>• Sacred Designs of Devi & Divinity<br>• Enhanced Grip & Safety<br>• A Gentle Reminder of Awareness<br>• Comfort & Convenience<br>• Elegant Spiritual Beauty",
         images: ["assets/images/shop/mobile-holder.jpeg"]
     },
     {
         id: 8,
         name: "Short Stories of Wisdom",
         price: 200,
-        short: "Stories to ignite innocence.",
-        desc: "Stories that came to the author in deep meditation. Suitable for all ages to taste a new dimension of quietness.",
+        short: "A collection of stories to ignite innocence.",
+        desc: "This is a collection of short stories that came to the author in his meditations. Each story may help the reader to taste a new dimension of innocence and quietness within. Regardless of age, gender or nationality anyone can dive into these little pearls of wisdom.<br><br>Children especially can access the supreme knowledge of meditation with the help of these short stories. In this collection each paragraph carries sacred sentences which can evoke and ignite an eye of innocence, a head of humbleness and a heart of humility.",
         images: ["assets/images/shop/book.jpeg", "assets/images/shop/book2.jpeg"]
     },
     {
         id: 9,
         name: "Guided Audio Practices",
         price: 1600,
-        short: "Ancient techniques for peace.",
-        desc: "A guided relaxation and meditation practice to help you live with clarity.",
+        short: "Gentle offering from ancient spiritual lineages.",
+        desc: "This guided relaxation and meditation is a gentle offering from ancient spiritual lineages, passed down through generations with one sacred intention — to help humanity live with clarity, peace, and awareness.<br><br>In today’s fast-moving world, daily challenges often burden the mind and emotions. This practice provides a safe inner space where the body can rest, the mind can settle, and awareness can return to its natural state of balance.",
         images: ["assets/images/shop/audio.jpeg"]
     }
 ];
 
 /* ========================================================
-   2. INITIALIZATION & RENDERING
+   2. INITIALIZATION
    ======================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 2.1 Render Products (Only if on Shop Page)
+    // 2.1 Render Shop Grid
     const grid = document.getElementById('product-grid');
     if (grid) {
         grid.innerHTML = products.map(p => {
-            // Generate Carousel or Single Image
-            let imageHTML = '';
+            // Generate Thumbnails if > 1 image
+            let thumbnailsHTML = '';
             if (p.images.length > 1) {
-                // Generate Indicators
-                let indicators = p.images.map((_, idx) => 
-                    `<li data-target="#carousel-${p.id}" data-slide-to="${idx}" class="${idx === 0 ? 'active' : ''}"></li>`
-                ).join('');
-
-                // Generate Slides
-                let slides = p.images.map((img, idx) => 
-                    `<div class="carousel-item ${idx === 0 ? 'active' : ''}">
-                        <img src="${img}" class="d-block w-100" alt="${p.name}">
-                     </div>`
-                ).join('');
-
-                imageHTML = `
-                    <div id="carousel-${p.id}" class="carousel slide product-carousel" data-ride="carousel" data-interval="false">
-                        <ol class="carousel-indicators">${indicators}</ol>
-                        <div class="carousel-inner">${slides}</div>
-                        <a class="carousel-control-prev" href="#carousel-${p.id}" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-${p.id}" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                `;
-            } else {
-                // Single Image
-                imageHTML = `<img src="${p.images[0]}" class="card-img-top" style="height:250px; object-fit:cover;" alt="${p.name}">`;
+                thumbnailsHTML = `<div class="thumb-strip">` + 
+                    p.images.map((img, idx) => 
+                        `<img src="${img}" class="thumb-img ${idx===0?'active':''}" onclick="changeProductImage(${p.id}, '${img}', this)">`
+                    ).join('') + 
+                `</div>`;
             }
 
             return `
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card product-card h-100">
-                    ${imageHTML}
+                    
+                    <div id="overlay-${p.id}" class="product-overlay">
+                        <div class="overlay-content">
+                            <span class="overlay-msg"><i class="fa fa-check-circle"></i> Added to Cart!</span>
+                            <a href="cart.html" class="overlay-btn">View Cart</a>
+                        </div>
+                    </div>
+
+                    <div class="img-wrapper">
+                        <img src="${p.images[0]}" id="main-img-${p.id}" class="card-img-top" alt="${p.name}">
+                    </div>
+                    ${thumbnailsHTML}
+                    
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${p.name}</h5>
-                        <p class="card-text text-muted small">${p.short}</p>
-                        <h5 class="price-tag mb-3">₹${p.price} <span style="font-size:0.8rem;color:#777">${p.unit ? '/' + p.unit : ''}</span></h5>
+                        <p class="card-text small">${p.short}</p>
+                        <h5 class="price-tag mt-2">₹${p.price} <span style="font-size:0.8rem;color:#999;font-weight:normal">${p.unit ? '/' + p.unit : ''}</span></h5>
                         
-                        <div class="mt-auto">
+                        <div class="mt-auto pt-3">
                             <div class="d-flex align-items-center mb-3">
-                                <input type="number" id="qty-${p.id}" class="form-control me-2" value="1" min="1" style="width: 70px;">
-                                <button class="btn btn-primary w-100 text-white" style="background-color: #2389c4;" onclick="addToCart(${p.id})">Add to Cart</button>
+                                <input type="number" id="qty-${p.id}" class="form-control form-control-qty me-2" value="1" min="1" style="width: 60px;">
+                                <button class="btn btn-add-cart w-100" onclick="addToCartOverlay(${p.id})">
+                                    Add to Cart
+                                </button>
                             </div>
-                            <button class="btn btn-link text-decoration-none p-0" onclick="openModal(${p.id})">Read More &rarr;</button>
+                            <button class="btn btn-link text-decoration-none p-0" style="color:#888; font-size:13px" onclick="openModal(${p.id})">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -144,108 +133,117 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    // 2.2 Global updates
+    // 2.2 Initial Updates
     updateCartUI();
     renderCartTable();
 });
 
 /* ========================================================
-   3. CART LOGIC
+   3. INTERACTION LOGIC
    ======================================================== */
-function addToCart(id) {
+
+// Change Main Image
+function changeProductImage(id, src, thumb) {
+    const mainImg = document.getElementById(`main-img-${id}`);
+    if(mainImg) {
+        mainImg.style.opacity = 0;
+        setTimeout(() => {
+            mainImg.src = src;
+            mainImg.style.opacity = 1;
+        }, 150);
+    }
+    const siblings = thumb.parentNode.children;
+    for (let sib of siblings) sib.classList.remove('active');
+    thumb.classList.add('active');
+}
+
+// Add to Cart with OVERLAY Effect
+function addToCartOverlay(id) {
+    // 1. Logic: Add to LocalStorage
     const qtyInput = document.getElementById(`qty-${id}`);
-    let qty = parseInt(qtyInput.value);
-    
-    if (isNaN(qty) || qty < 1) qty = 1;
+    let qty = parseInt(qtyInput.value) || 1;
+    if (qty < 1) qty = 1;
 
     let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
-    
-    // Check if item exists
     const existingItem = cart.find(item => item.id === id);
-    if (existingItem) {
-        existingItem.qty += qty;
-    } else {
-        cart.push({ id: id, qty: qty });
-    }
-    
+    if (existingItem) existingItem.qty += qty;
+    else cart.push({ id: id, qty: qty });
     localStorage.setItem('padmaCart', JSON.stringify(cart));
-    
-    // NO ALERT - Trigger Animations instead
-    triggerCartAnimation();
-    showToast("Item added to cart");
+
+    // 2. Visual: Trigger Cart Icon Shake
+    const cartIcon = document.querySelector('.cart-float-icon');
+    if(cartIcon) {
+        cartIcon.classList.remove('shake-animation');
+        void cartIcon.offsetWidth; // trigger reflow
+        cartIcon.classList.add('shake-animation');
+    }
+
+    // 3. Visual: Show White Overlay on Product
+    const overlay = document.getElementById(`overlay-${id}`);
+    if(overlay) {
+        overlay.classList.add('active');
+        // Hide after 3 seconds
+        setTimeout(() => {
+            overlay.classList.remove('active');
+        }, 3000);
+    }
+
+    // 4. Update UI numbers
     updateCartUI();
 }
 
+/* ========================================================
+   4. CART UI UPDATES
+   ======================================================== */
 function updateCartUI() {
     const cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
     const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-    const countBadge = document.getElementById('cart-count');
-    const stickyBar = document.getElementById('sticky-cart-bar');
-    const stickyText = document.getElementById('sticky-total-text');
     
-    // Update Badge
+    // Update Floating Badge
+    const countBadge = document.getElementById('cart-count');
     if (countBadge) {
         countBadge.innerText = totalQty;
         countBadge.style.display = totalQty > 0 ? 'flex' : 'none';
     }
 
     // Update Sticky Bar
-    if (stickyBar && stickyText) {
+    const stickyBar = document.getElementById('sticky-cart-bar');
+    const stickyImgsDiv = document.getElementById('sticky-images');
+    
+    if (stickyBar && stickyImgsDiv) {
         if (totalQty > 0) {
             stickyBar.classList.add('visible');
-            stickyText.innerText = `${totalQty} Item(s) in Cart`;
+            
+            // Build Sticky Images
+            let html = '';
+            let shownCount = 0;
+            const maxShow = 4;
+
+            cart.forEach(item => {
+                const p = products.find(x => x.id === item.id);
+                if(p && shownCount < maxShow) {
+                    html += `<img src="${p.images[0]}" class="sticky-thumb">`;
+                    shownCount++;
+                }
+            });
+
+            if (cart.length > maxShow) {
+                html += `<div class="sticky-more">+${cart.length - maxShow}</div>`;
+            }
+            
+            stickyImgsDiv.innerHTML = html;
         } else {
             stickyBar.classList.remove('visible');
         }
     }
 }
 
-// Helper: Shake Animation
-function triggerCartAnimation() {
-    const cartIcon = document.querySelector('.cart-float-icon');
-    if (cartIcon) {
-        cartIcon.classList.remove('shake-animation');
-        void cartIcon.offsetWidth; // trigger reflow
-        cartIcon.classList.add('shake-animation');
-    }
-}
-
-// Helper: Custom Toast Notification
-function showToast(message) {
-    const toast = document.getElementById("custom-toast");
-    if (toast) {
-        toast.innerText = message;
-        toast.className = "show";
-        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-    }
-}
-
 /* ========================================================
-   4. MODAL LOGIC
-   ======================================================== */
-function openModal(id) {
-    const p = products.find(x => x.id === id);
-    if (!p) return;
-
-    $('#modal-title').text(p.name);
-    $('#modal-price').text('₹' + p.price);
-    $('#modal-desc').text(p.desc);
-    
-    // Use first image for modal
-    $('#modal-img').attr('src', p.images[0]);
-    
-    // NOTE: Removed "Add to Cart" logic from modal as requested
-    
-    $('#productModal').modal('show');
-}
-
-/* ========================================================
-   5. CART PAGE RENDERING
+   5. CART PAGE RENDERING (Standard Input)
    ======================================================== */
 function renderCartTable() {
     const tbody = document.getElementById('cart-table-body');
     const grandTotalEl = document.getElementById('grand-total');
-    
     if (!tbody) return; 
 
     let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
@@ -253,7 +251,7 @@ function renderCartTable() {
     let grandTotal = 0;
 
     if(cart.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center py-5">Your cart is empty.<br><br><a href="shop.html" class="btn btn-primary btn-sm text-white">Go to Shop</a></td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center py-5"><h5 class="text-muted">Cart is empty</h5><a href="shop.html" class="btn btn-primary mt-3" style="background-color:#2389c4; border:none;">Start Shopping</a></td></tr>';
         if(grandTotalEl) grandTotalEl.innerText = "₹0";
         return;
     }
@@ -266,22 +264,30 @@ function renderCartTable() {
 
             html += `
                 <tr>
-                    <td style="vertical-align: middle;">
-                        <img src="${product.images[0]}" style="width:40px; height:40px; object-fit:cover; margin-right:10px; border-radius:4px;">
-                        ${product.name}
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="${product.images[0]}" style="width:60px; height:60px; object-fit:cover; border-radius:8px; margin-right:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1)">
+                            <div>
+                                <h6 class="mb-0 font-weight-bold">${product.name}</h6>
+                                <small class="text-muted">₹${product.price} / unit</small>
+                            </div>
+                        </div>
                     </td>
-                    <td style="vertical-align: middle;">₹${product.price}</td>
+                    <td class="text-center font-weight-bold">₹${product.price}</td>
                     
-                    <td style="vertical-align: middle; min-width: 120px;">
-                        <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-                        <span class="mx-2 font-weight-bold">${item.qty}</span>
-                        <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                    <td>
+                        <input type="number" 
+                               class="cart-qty-input" 
+                               value="${item.qty}" 
+                               min="1" 
+                               onchange="updateCartQty(${item.id}, this.value)">
                     </td>
 
-                    <td style="vertical-align: middle;">₹${total}</td>
-                    <td style="vertical-align: middle;">
-                        <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})" title="Remove">
-                            <i class="fa fa-trash"></i>
+                    <td class="text-center font-weight-bold" style="color:var(--primary)">₹${total}</td>
+                    
+                    <td class="text-center">
+                        <button class="btn-remove" onclick="removeFromCart(${index})" title="Remove">
+                            <i class="fa fa-times"></i>
                         </button>
                     </td>
                 </tr>
@@ -293,13 +299,14 @@ function renderCartTable() {
     if(grandTotalEl) grandTotalEl.innerText = "₹" + grandTotal;
 }
 
-function changeQty(id, change) {
+function updateCartQty(id, newQty) {
+    let qty = parseInt(newQty);
+    if(qty < 1) qty = 1;
+
     let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
     const item = cart.find(x => x.id === id);
-    
-    if (item) {
-        item.qty += change;
-        if (item.qty < 1) item.qty = 1; // Prevent going below 1
+    if(item) {
+        item.qty = qty;
         localStorage.setItem('padmaCart', JSON.stringify(cart));
         renderCartTable();
         updateCartUI();
@@ -307,76 +314,84 @@ function changeQty(id, change) {
 }
 
 function removeFromCart(index) {
-    // Replaced Alert/Confirm with simple toast interaction logic or custom styling
-    // But for delete, a browser confirm is still the safest standard UX. 
-    // To stick to "no alerts" request, we just remove it instantly.
-    
     let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
     cart.splice(index, 1);
     localStorage.setItem('padmaCart', JSON.stringify(cart));
-    
     renderCartTable();
     updateCartUI();
-    showToast("Item removed from cart");
 }
 
 /* ========================================================
-   6. WHATSAPP SEND LOGIC
+   6. WHATSAPP & MODAL LOGIC
    ======================================================== */
+function openModal(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    
+    $('#modal-title').text(p.name);
+    $('#modal-price').text('₹' + p.price);
+    
+    // Render text with HTML formatting
+    document.getElementById('modal-desc').innerHTML = p.desc;
+    
+    // --- RENDER ALL IMAGES ---
+    const imgContainer = document.getElementById('modal-img-container');
+    if (imgContainer) {
+        imgContainer.innerHTML = ''; // Clear old images
+        p.images.forEach(imgSrc => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.className = 'img-fluid mb-3 rounded';
+            img.style.width = '100%';
+            img.style.maxHeight = '300px';
+            img.style.objectFit = 'contain';
+            imgContainer.appendChild(img);
+        });
+    }
+    
+    $('#productModal').modal('show');
+}
+
 function sendWhatsAppEnquiry(event) {
     event.preventDefault();
-
     let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
-    if(cart.length === 0) {
-        showToast("Your Cart is empty!");
-        return;
-    }
+    if(cart.length === 0) return;
 
-    const nameEl = document.getElementById('cust-name');
-    const locEl = document.getElementById('cust-location');
-    const contactEl = document.getElementById('cust-contact-method');
+    const name = document.getElementById('cust-name').value.trim();
+    const loc = document.getElementById('cust-location').value.trim();
+    const method = document.getElementById('cust-contact-method').value;
 
-    const name = nameEl.value.trim();
-    const location = locEl.value.trim();
-    const contactMethod = contactEl.value;
+    if(!name || !loc) { alert("Please fill details"); return; }
 
-    if(!name || !location) {
-        showToast("Please fill in Name and Location");
-        return;
-    }
-
-    // Build Message
-    let message = `*New Order Enquiry from Website* %0a%0a`;
-    message += `Namaste, I would like to order the following:%0a%0a`;
+    // --- UPDATED WHATSAPP MESSAGE FORMAT ---
+    let msg = `*New Enquiry from Website* %0a%0a`;
+    msg += `Namaste, I would like to enquire about the following products:%0a%0a`;
     
     let total = 0;
 
-    cart.forEach((item, index) => {
+    cart.forEach((item, idx) => {
         const p = products.find(x => x.id === item.id);
         if(p) {
-            const lineTotal = p.price * item.qty;
-            total += lineTotal;
-            message += `${index + 1}. ${p.name} (x${item.qty}) - ₹${lineTotal}%0a`;
+            const t = p.price * item.qty;
+            total += t;
+            // Format: 1. Product Name (x2) - ₹400
+            msg += `${idx+1}. ${p.name} (x${item.qty}) - ₹${t}%0a`;
         }
     });
 
-    message += `%0a*Total Estimate: ₹${total}*%0a`;
-    message += `---------------------------------%0a`;
-    message += `*Customer Details:*%0a`;
-    message += `Name: ${name}%0a`;
-    message += `Location: ${location}%0a`;
-    message += `Contact Method: ${contactMethod}%0a`;
+    msg += `%0aTotal Estimate: ₹${total}`;
+    msg += `%0a---------------------------------`;
+    msg += `%0aCustomer Details:`;
+    msg += `%0aName: ${name}`;
+    msg += `%0aLocation: ${loc}`;
+    msg += `%0aPreferred Contact: ${method}`;
 
-    // Send Message
-    const phoneNumber = "917034199217"; 
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-
-    // CLEAR CART & FIELDS (As requested)
-    localStorage.removeItem('padmaCart');
-    nameEl.value = "";
-    locEl.value = "";
+    // Send to WhatsApp
+    window.open(`https://wa.me/917034199217?text=${msg}`, '_blank');
     
-    // Render empty table
+    // Clear Cart & Form
+    localStorage.removeItem('padmaCart');
+    document.getElementById('enquiry-form').reset();
     renderCartTable();
     updateCartUI();
 }
