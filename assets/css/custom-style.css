@@ -1012,7 +1012,8 @@ a.item-link {
 #whatsapp-container {
     position: fixed;
     right: 20px;
-    bottom: 20px; /* Standard bottom-right */
+    top: 50%; /* Moves the top edge to the middle of the screen */
+    transform: translateY(-50%); /* Shifts it back up by half its own height */
     z-index: 99999;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

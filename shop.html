@@ -1,21 +1,35 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Shop | Padma Here & Now</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta charset="utf-8">
+    <meta name="keywords" content="Padma Here & Now, Shop, Yoga Products, Meditation, Rudraksha, Vibhuti">
+
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/Padma.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/Padma.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/Padma.png">
+    <link rel="manifest" href="./assets/images/favicon/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+
     <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/mediaqueries.css" rel="stylesheet" type="text/css">
     <link href="assets/css/special-classes.css" rel="stylesheet" type="text/css">
+
     <link href="assets/css/custom-style.css" rel="stylesheet" type="text/css">
+
     <link href="assets/css/shop-style.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
     <div class="sub-banner-section">
         <header>
@@ -25,8 +39,12 @@
                         <a class="navbar-brand" href="./index.html">
                             <figure class="mb-0"><img class="w-200" src="./assets/images/Padma.png" alt="Padma Logo"></figure>
                         </a>
-                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span>
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav">
@@ -37,21 +55,26 @@
                                 <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
                                 <li class="nav-item"><a class="nav-link" href="./team.html">Team</a></li>
                                 <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
-                                <li class="nav-item active"><a class="nav-link shop-menu-btn" href="./shop.html">Our Shop <i class="fa-solid fa-cart-shopping ml-1"></i></a></li>
+                                <li class="nav-item active">
+                                    <a class="nav-link shop-menu-btn" href="./shop.html">
+                                        Our Shop <i class="fa-solid fa-cart-shopping ml-1"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>
         </header>
+
         <section class="banner-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="banner-section-content">
                             <h1 data-aos="fade-up">Our Shop</h1>
                             <div class="btn_wrapper">
-                                <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right"></i><span class="sub_span"> Shop</span>
+                                <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right" aria-hidden="true"></i><span class="sub_span"> Shop</span>
                             </div>
                         </div>
                     </div>
@@ -70,13 +93,52 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="product-grid"></div>
+            
+            <div class="row" id="product-grid">
+            </div>
         </div>
     </section>
 
+    <section class="py-5 bg-white text-center border-top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h3 style="font-weight: 700; color: #2d3436; margin-bottom: 15px;">Ready to complete your journey?</h3>
+                    <p style="font-size: 18px; color: #636e72; margin-bottom: 25px;">
+                        Review your selected spiritual tools and finalize your enquiry.
+                    </p>
+                    <a href="cart.html" class="btn btn-primary" style="background-color: #2389c4; border: none; padding: 12px 40px; font-size: 18px; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(35, 137, 196, 0.4);">
+                        View Cart & Checkout <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="border-radius:20px; overflow:hidden;">
+                <div class="modal-header border-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center pt-0 pb-4">
+                    <div id="modal-img-container" class="mb-3"></div>
+                    
+                    <h3 id="modal-title" style="font-weight:700;">Product Name</h3>
+                    <h4 class="text-primary mb-3" id="modal-price" style="font-weight:700;">₹0</h4>
+                    <p id="modal-desc" class="text-muted px-3 text-left">Description...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="sticky-cart-bar">
         <div class="sticky-imgs" id="sticky-images"></div>
-        <a href="cart.html" class="sticky-btn">View Cart <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        <a href="cart.html" class="sticky-btn">
+            View Cart <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
     </div>
 
     <a href="cart.html" class="cart-float-icon">
@@ -84,24 +146,14 @@
         <span class="cart-count" id="cart-count">0</span>
     </a>
 
-    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content" style="border-radius:20px; overflow:hidden;">
-                <div class="modal-header border-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body text-center pt-0 pb-4">
-                    <div id="modal-img-container" class="mb-3"></div>
-                    <h3 id="modal-title" style="font-weight:700;"></h3>
-                    <h4 class="text-primary mb-3" id="modal-price" style="font-weight:700;"></h4>
-                    <p id="modal-desc" class="text-muted px-3 text-left"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="footer"></div>
-    <div id="whatsapp-container"><div id="toggle-btn">❯</div><a href="https://wa.me/917034199217" target="_blank" class="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i></a></div>
+
+    <div id="whatsapp-container">
+        <div id="toggle-btn">❯</div>
+        <a href="https://wa.me/917034199217" target="_blank" class="whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -109,7 +161,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/animation.js"></script>
     <script src="assets/js/footer.js"></script> 
-    
+    <script src="assets/js/whatsApp.js"></script> 
     <script src="assets/js/shop.js"></script> 
 </body>
 </html>
