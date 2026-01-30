@@ -909,15 +909,15 @@ a.item-link {
         border-top: 2px solid #000000;
         box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
-    .navbar-nav .nav-link {
-        color: #000000 !important;
-        font-family: 'Playfair Display', serif !important;
-        font-size: 18px !important;
-        font-weight: 600 !important;
-        padding: 14px 20px !important;
-        border-bottom: 1px solid #f0f0f0;
-        transition: all 0.3s ease;
-    }
+   .navbar-nav .nav-link {
+    color: #000000 !important;   /* <--- THIS IS THE LINE TO CHANGE */
+    font-family: 'Playfair Display', serif !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    padding: 14px 20px !important;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
     .navbar-nav .nav-item.active .nav-link,
     .navbar-nav .nav-link:hover {
         color: #2389c4 !important;
@@ -1288,3 +1288,48 @@ a.item-link {
     opacity: 1;
     bottom: 50px;
 }
+
+
+
+
+
+
+
+/* =========================================
+   MOBILE MENU COLOR FIX (Paste at Bottom)
+   ========================================= */
+
+@media screen and (max-width: 991px) {
+    
+    /* 1. Force Menu Links (Text) to Black */
+    .navbar-light .navbar-nav .nav-link {
+        color: #000000 !important;
+        font-family: 'Playfair Display', serif !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+    }
+
+    /* 2. Force the 'Active' link (current page) to Black */
+    .navbar-light .navbar-nav .nav-item.active .nav-link {
+        color: #000000 !important; 
+    }
+
+    /* 3. Text Hover State: Turn Blue & Add Background */
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #2389c4 !important; 
+        background-color: #f9f9f9 !important;
+        padding-left: 30px !important;
+    }
+
+    /* 4. Cart Icon: Force Black normally + Smooth Transition */
+    .navbar-nav .nav-link i.fa-cart-shopping {
+        color: #000000 !important; 
+        transition: color 0.3s ease;
+    }
+
+    /* 5. Cart Icon Hover: Turn Blue when link is hovered */
+    .navbar-nav .nav-link:hover i.fa-cart-shopping {
+        color: #2389c4 !important;
+    }
+}
+

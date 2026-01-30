@@ -1,0 +1,424 @@
+/* ==========================================================================
+   1. CORE VARIABLES (Local to Shop)
+   ========================================================================== */
+:root {
+    --shop-primary: #2389c4;
+    --shop-primary-dark: #1b6a99;
+    --shop-text-dark: #2d3436;
+    --shop-text-light: #636e72;
+    --shop-bg-light: #f9fbfd;
+    --shop-white: #ffffff;
+    --shop-shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+    --shop-shadow-md: 0 8px 24px rgba(35, 137, 196, 0.15);
+    --shop-radius-md: 12px;
+    --shop-radius-lg: 20px;
+}
+
+/* ==========================================================================
+   2. PRODUCT CARDS & GALLERY
+   ========================================================================== */
+.product-card {
+    border: none;
+    border-radius: var(--shop-radius-lg);
+    background: var(--shop-white);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    box-shadow: var(--shop-shadow-sm);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shop-shadow-md);
+}
+
+/* --- WHITE TRANSPARENT OVERLAY --- */
+.product-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-content {
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.product-overlay.active .overlay-content {
+    transform: translateY(0);
+}
+
+.overlay-msg {
+    color: var(--shop-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.overlay-btn {
+    background: var(--shop-primary);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(35, 137, 196, 0.4);
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.overlay-btn:hover {
+    background: var(--shop-primary-dark);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* Images & Thumbnails */
+.img-wrapper {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: #f1f1f1;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.thumb-strip {
+    display: flex;
+    gap: 8px;
+    padding: 10px 15px 0;
+    justify-content: center;
+}
+
+.thumb-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.thumb-img:hover, .thumb-img.active {
+    border-color: var(--shop-primary);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.card-body { padding: 1.5rem; }
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--shop-text-dark);
+}
+
+.card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--shop-text-light);
+}
+
+.price-tag {
+    color: var(--shop-primary);
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.btn-add-cart {
+    background-color: var(--shop-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 0;
+    transition: background 0.3s;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--shop-primary-dark);
+    color: white;
+}
+
+.form-control-qty {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--shop-text-dark);
+}
+
+/* ==========================================================================
+   3. CART PAGE & TABLE STYLES
+   ========================================================================== */
+.cart-table-container {
+    background: var(--shop-white);
+    border-radius: var(--shop-radius-lg);
+    box-shadow: var(--shop-shadow-sm);
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.cart-table-head th {
+    background-color: #f0f7fb;
+    color: var(--shop-primary-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border: none;
+    padding: 20px;
+}
+
+.table td {
+    vertical-align: middle;
+    border-top: 1px solid #f1f1f1;
+    padding: 20px;
+}
+
+.cart-qty-input {
+    width: 80px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    font-weight: bold;
+    color: var(--shop-text-dark);
+    margin: 0 auto;
+    display: block;
+}
+
+.btn-remove {
+    background: #fff0f0;
+    color: #e74c3c;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.btn-remove:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.enquiry-card {
+    background: #ffffff;
+    border: none;
+    border-radius: var(--shop-radius-lg);
+    box-shadow: var(--shop-shadow-sm);
+}
+
+.btn-whatsapp-form {
+    background-color: #25d366;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-whatsapp-form:hover {
+    background-color: #1da851;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. STICKY CART BAR
+   ========================================================================== */
+#sticky-cart-bar {
+    position: fixed;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -5px 30px rgba(0,0,0,0.15);
+    border-radius: 20px 20px 0 0;
+    padding: 15px 25px;
+    z-index: 9990;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+#sticky-cart-bar.visible {
+    bottom: 0;
+}
+
+.sticky-imgs {
+    display: flex;
+    align-items: center;
+}
+
+.sticky-thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    margin-right: -15px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sticky-more {
+    width: 35px;
+    height: 35px;
+    background: var(--shop-text-dark);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    border: 2px solid white;
+    font-weight: bold;
+}
+
+.sticky-btn {
+    background: var(--shop-primary);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(35, 137, 196, 0.4);
+    transition: 0.3s;
+}
+
+.sticky-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(35, 137, 196, 0.6);
+    color: white;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   5. UI ANIMATIONS & WIDGETS
+   ========================================================================== */
+@keyframes shake-cart {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.shake-animation {
+    animation: shake-cart 0.5s ease-in-out;
+}
+
+/* Floating Cart Icon */
+.cart-float-icon {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: var(--shop-primary);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 8px 25px rgba(35, 137, 196, 0.4);
+    z-index: 9998;
+    transition: transform 0.3s;
+}
+
+.cart-float-icon:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e74c3c;
+    color: white;
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    border: 2px solid white;
+}
+
+/* WhatsApp Widget */
+#whatsapp-container {
+    position: fixed;
+    right: 20px;
+    bottom: 25px;
+    z-index: 99999;
+}
+
+.whatsapp-btn {
+    background: #25d366;
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 32px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+#toggle-btn {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: #333;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border: 2px solid white;
+    z-index: 100000;
+}

@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Your Cart | Padma Here & Now</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta charset="utf-8">
-
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/Padma.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/Padma.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/Padma.png">
-    <link rel="manifest" href="./assets/images/favicon/manifest.json">
-    <meta name="theme-color" content="#ffffff">
-
     <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/mediaqueries.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/custom-style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/special-classes.css" rel="stylesheet" type="text/css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="assets/css/custom-style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/shop-style.css" rel="stylesheet" type="text/css">
+    <style>
+        #custom-toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 50px; padding: 16px; position: fixed; z-index: 99999; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.5s, bottom 0.5s; }
+        #custom-toast.show { visibility: visible; opacity: 1; bottom: 50px; }
+        #custom-toast.success { background-color: #28a745; } 
+        #custom-toast.error { background-color: #dc3545; }   
+    </style>
 </head>
-
 <body>
     <div class="sub-banner-section">
         <header>
             <div class="main_header">
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-lg navbar-light p-0">
-                        <a class="navbar-brand" href="./index.html">
-                            <figure class="mb-0">
-                                <img class="w-200" src="./assets/images/Padma.png" alt="Padma Logo">
-                            </figure>
-                        </a>
-                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            <span class="navbar-toggler-icon"></span>
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                        <a class="navbar-brand" href="./index.html"><figure class="mb-0"><img class="w-200" src="./assets/images/Padma.png" alt="Padma Logo"></figure></a>
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
@@ -48,85 +39,53 @@
                                 <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
                                 <li class="nav-item"><a class="nav-link" href="./team.html">Team</a></li>
                                 <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
-                                <li class="nav-item active">
-                                    <a class="nav-link shop-menu-btn" href="./shop.html">
-                                        Our Shop <i class="fa-solid fa-cart-shopping ml-1"></i>
-                                    </a>
-                                </li>
+                                <li class="nav-item active"><a class="nav-link shop-menu-btn" href="./shop.html">Our Shop <i class="fa-solid fa-cart-shopping ml-1"></i></a></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>
         </header>
-
         <section class="banner-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="banner-section-content">
-                            <h1 data-aos="fade-up">Your Cart</h1>
-                            <div class="btn_wrapper">
-                                <span class="sub_home_span">Shop </span>
-                                <i class="fa-solid fa-angles-right"></i>
-                                <span class="sub_span"> Cart</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="container"><div class="row"><div class="col-lg-12"><div class="banner-section-content"><h1 data-aos="fade-up">Your Cart</h1><div class="btn_wrapper"><span class="sub_home_span">Shop </span><i class="fa-solid fa-angles-right"></i><span class="sub_span"> Cart</span></div></div></div></div></div>
         </section>
     </div>
 
     <div class="container py-5">
-        <div class="services_content text-center mb-4">
-            <h2>Finalize Enquiry</h2>
-        </div>
-
-        <div class="table-responsive cart-table-container">
-            <table class="table table-bordered">
+        <div class="services_content text-center mb-5"><h2 style="font-weight:700;">Finalize Your Order</h2></div>
+        
+        <div class="table-responsive cart-table-container mb-5">
+            <table class="table mb-0">
                 <thead class="cart-table-head">
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Qty</th>
-                        <th>Total</th>
-                        <th>Action</th>
-                    </tr>
+                    <tr><th style="width: 40%;">Product</th><th class="text-center">Price</th><th class="text-center">Quantity</th><th class="text-center">Total</th><th class="text-center">Action</th></tr>
                 </thead>
-                <tbody id="cart-table-body">
-                    </tbody>
+                <tbody id="cart-table-body"></tbody>
             </table>
-            <div class="text-right p-3">
-                <h4 class="cart-total-text">
-                    Total Estimate: <span id="grand-total">₹0</span>
-                </h4>
+            <div class="p-4 text-right bg-white border-top">
+                <h4 style="color:#2d3436; font-weight:700;">Total Estimate: <span id="grand-total" style="color:#2389c4;">₹0</span></h4>
             </div>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card enquiry-card">
-                    <div class="card-body p-4">
-                        <form id="enquiry-form" onsubmit="sendWhatsAppEnquiry(event)">
+                <div class="card enquiry-card p-4">
+                    <div class="card-body">
+                        <form id="enquiry-form">
                             <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" id="cust-name" class="form-control" required placeholder="Your Name" />
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" id="cust-location" class="form-control" required placeholder="Location (City)" />
-                                </div>
+                                <div class="col-md-6 mb-3"><input type="text" id="cust-name" name="name" class="form-control" required placeholder="Your Name" style="padding: 12px; border-radius: 8px;"></div>
+                                <div class="col-md-6 mb-3"><input type="text" id="cust-location" name="location" class="form-control" required placeholder="Location (City)" style="padding: 12px; border-radius: 8px;"></div>
                             </div>
-                            <div class="mb-3">
-                                <label>How should we contact you?</label>
-                                <select id="cust-contact-method" class="form-control">
+                            <div class="mb-4">
+                                <label style="font-weight:600; font-size:14px; color:#555;">Preferred Contact Method</label>
+                                <select id="cust-contact-method" class="form-control" style="height:45px; border-radius:8px;">
                                     <option value="WhatsApp">WhatsApp</option>
                                     <option value="Email">Email</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-success w-100 py-3 btn-whatsapp-form">
-                                <i class="fa-brands fa-whatsapp"></i> Send Enquiry via WhatsApp
-                            </button>
+                            <div class="row" id="email-field-container" style="display: none;">
+                                <div class="col-md-12 mb-4"><input type="email" id="cust-email" name="email" class="form-control" placeholder="Your Email Address" style="padding: 12px; border-radius: 8px;"></div>
+                            </div>
+                            <button type="submit" id="dynamic-submit-btn" class="btn btn-success w-100 py-3" style="font-weight:600; border-radius:10px; transition: all 0.3s;"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
                         </form>
                     </div>
                 </div>
@@ -134,16 +93,9 @@
         </div>
     </div>
 
-    <div id="custom-toast">Notification</div>
-
+    <div id="custom-toast">Notification Message</div>
     <div id="footer"></div>
-
-    <div id="whatsapp-container">
-        <div id="toggle-btn">❯</div>
-        <a href="https://wa.me/917034199217" target="_blank" class="whatsapp-btn">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
+    <div id="whatsapp-container"><div id="toggle-btn">❯</div><a href="https://wa.me/917034199217" target="_blank" class="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i></a></div>
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -151,7 +103,179 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/animation.js"></script>
     <script src="assets/js/footer.js"></script>
-    <script src="assets/js/whatsApp.js"></script>
+    
     <script src="assets/js/shop.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        renderCartTable(); // Initial Render
+
+        // 1. Toggle Form Logic
+        $("#cust-contact-method").change(function() {
+            var method = $(this).val();
+            var btn = $("#dynamic-submit-btn");
+            var emailField = $("#email-field-container");
+            var emailInput = $("#cust-email");
+
+            if(method === "Email") {
+                emailField.slideDown(); 
+                emailInput.prop('required', true); 
+                btn.removeClass("btn-success").addClass("btn-primary").css("background-color", "#2389c4");
+                btn.html('<i class="fa-solid fa-envelope"></i> Order via Email');
+            } else {
+                emailField.slideUp();
+                emailInput.prop('required', false);
+                btn.removeClass("btn-primary").addClass("btn-success").css("background-color", "#25d366");
+                btn.html('<i class="fa-brands fa-whatsapp"></i> Order via WhatsApp');
+            }
+        });
+
+        // 2. Submit Logic
+        $("#enquiry-form").submit((e) => {
+            e.preventDefault();
+
+            // Scrape table for message
+            var orderList = "";
+            var hasItems = false;
+            var counter = 1; 
+            $("#cart-table-body tr").each(function() {
+                var prod = $(this).find("td:eq(0)").text().trim(); 
+                // Fix: Look for input value, fallback to text
+                var qtyVal = $(this).find("input").val();
+                if(!qtyVal) qtyVal = $(this).find("td:eq(2)").text().trim();
+                
+                var price = $(this).find("td:eq(3)").text().trim();
+                
+                // Only add if we found a product name (skips empty rows)
+                if(prod && !prod.includes("Start Shopping")) {
+                    orderList += `${counter}. ${prod} (x${qtyVal}) - ${price}\n`;
+                    hasItems = true;
+                    counter++;
+                }
+            });
+
+            if(!hasItems) { showToast("Your cart is empty!", "error"); return; }
+
+            var method = $("#cust-contact-method").val();
+            var name = $("#cust-name").val();
+            var loc = $("#cust-location").val();
+            var total = $("#grand-total").text();
+
+            if (method === "WhatsApp") {
+                // --- WhatsApp Flow ---
+                var msg = "New Enquiry from Website \n\n" +
+                          "Namaste, I would like to enquire about the following products:\n\n" +
+                          orderList + "\n" +
+                          "Total Estimate: " + total + "\n" +
+                          "---------------------------------\n" +
+                          "Customer Details:\n" +
+                          "Name: " + name + "\n" +
+                          "Location: " + loc + "\n" +
+                          "Preferred Contact: WhatsApp";
+
+                window.open("https://wa.me/917034199217?text=" + encodeURIComponent(msg), '_blank');
+                
+                // CLEAR DATA
+                localStorage.removeItem('padmaCart'); 
+                $("#enquiry-form")[0].reset();
+                renderCartTable();
+                showToast("Opening WhatsApp...", "success");
+
+            } else {
+                // --- Email Flow ---
+                var email = $("#cust-email").val();
+                var btn = $("#dynamic-submit-btn");
+                var oldText = btn.html();
+                btn.html('<i class="fa-solid fa-spinner fa-spin"></i> Sending...').prop("disabled", true);
+
+                $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbwPPrvp5ZfEIjhqkNC8CUghlTDDdf90F4ricjkUOVJQh-K2MY-JQ0-L4D1vt8GFpF1E/exec",
+                    data: { form_type: 'order', name: name, location: loc, email: email, total_amount: total, order_details: orderList },
+                    method: "POST",
+                    success: function(res) {
+                        if (res.result === "success") {
+                            showToast("Order Sent! Check Email.", "success");
+                            localStorage.removeItem('padmaCart');
+                            $("#enquiry-form")[0].reset();
+                            renderCartTable();
+                            $("#cust-contact-method").val("WhatsApp").trigger("change");
+                        } else {
+                            showToast("Server Error", "error");
+                        }
+                        btn.html(oldText).prop("disabled", false);
+                    },
+                    error: function() {
+                        showToast("Connection failed", "error");
+                        btn.html(oldText).prop("disabled", false);
+                    }
+                });
+            }
+        });
+
+        // 3. Render Table (Needs products from shop.js)
+        function renderCartTable() {
+            const tbody = document.getElementById('cart-table-body');
+            const totalEl = document.getElementById('grand-total');
+            let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            let html = '';
+            let grandTotal = 0;
+
+            if(cart.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center py-5"><h5 class="text-muted">Cart is empty</h5><a href="shop.html" class="btn btn-primary mt-3" style="background-color:#2389c4; border:none;">Start Shopping</a></td></tr>';
+                if(totalEl) totalEl.innerText = "₹0";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                // 'products' is available because we linked shop.js
+                const p = products.find(x => x.id === item.id);
+                if(p) {
+                    const lineTotal = p.price * item.qty;
+                    grandTotal += lineTotal;
+                    html += `
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div><h6 class="mb-0 font-weight-bold">${p.name}</h6><small class="text-muted">₹${p.price}</small></div>
+                            </div>
+                        </td>
+                        <td class="text-center font-weight-bold">₹${p.price}</td>
+                        <td class="text-center">
+                             <input type="number" class="cart-qty-input" value="${item.qty}" min="1" 
+                                    onchange="updateCartQty(${item.id}, this.value)" style="width:60px; text-align:center; border:1px solid #ddd; border-radius:5px;">
+                        </td>
+                        <td class="text-center font-weight-bold" style="color:#2389c4">₹${lineTotal}</td>
+                        <td class="text-center">
+                            <button class="btn-remove" onclick="removeFromCart(${index})" style="border:none; background:#fee; color:red; width:30px; height:30px; border-radius:50%;"><i class="fa fa-times"></i></button>
+                        </td>
+                    </tr>`;
+                }
+            });
+            tbody.innerHTML = html;
+            if(totalEl) totalEl.innerText = "₹" + grandTotal;
+        }
+
+        // Expose helpers globally for inline onclicks
+        window.updateCartQty = function(id, val) {
+            let qty = parseInt(val); if(qty<1) qty=1;
+            let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            let item = cart.find(x => x.id === id);
+            if(item) { item.qty = qty; localStorage.setItem('padmaCart', JSON.stringify(cart)); renderCartTable(); }
+        };
+
+        window.removeFromCart = function(index) {
+            let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('padmaCart', JSON.stringify(cart));
+            renderCartTable();
+        };
+
+        function showToast(msg, type) {
+            var t = $("#custom-toast");
+            t.text(msg).removeClass("success error").addClass(type).addClass("show");
+            setTimeout(()=>t.removeClass("show"), 3000);
+        }
+    });
+    </script>
 </body>
 </html>
