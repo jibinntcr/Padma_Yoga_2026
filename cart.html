@@ -134,39 +134,44 @@
         $("#enquiry-form").submit((e) => {
             e.preventDefault();
 
-            // Scrape table for message
+            // DATA DRIVEN GENERATION (Fixes formatting bugs)
+            var cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            if(cart.length === 0) {
+                showToast("Your cart is empty!", "error");
+                return;
+            }
+
+            // Ensure products are loaded from shop.js
+            if (typeof products === 'undefined') {
+                showToast("Error loading product data.", "error");
+                return;
+            }
+
             var orderList = "";
-            var hasItems = false;
-            var counter = 1; 
-            $("#cart-table-body tr").each(function() {
-                var prod = $(this).find("td:eq(0)").text().trim(); 
-                // Fix: Look for input value, fallback to text
-                var qtyVal = $(this).find("input").val();
-                if(!qtyVal) qtyVal = $(this).find("td:eq(2)").text().trim();
-                
-                var price = $(this).find("td:eq(3)").text().trim();
-                
-                // Only add if we found a product name (skips empty rows)
-                if(prod && !prod.includes("Start Shopping")) {
-                    orderList += `${counter}. ${prod} (x${qtyVal}) - ${price}\n`;
-                    hasItems = true;
+            var grandTotal = 0;
+            var counter = 1;
+
+            cart.forEach(item => {
+                var p = products.find(x => x.id === item.id);
+                if (p) {
+                    var lineTotal = p.price * item.qty;
+                    grandTotal += lineTotal;
+                    // Format: 1. Product Name (x2) - ₹200
+                    orderList += `${counter}. ${p.name} (x${item.qty}) - ₹${lineTotal}\n`;
                     counter++;
                 }
             });
 
-            if(!hasItems) { showToast("Your cart is empty!", "error"); return; }
-
             var method = $("#cust-contact-method").val();
             var name = $("#cust-name").val();
             var loc = $("#cust-location").val();
-            var total = $("#grand-total").text();
+            var totalString = "₹" + grandTotal;
 
             if (method === "WhatsApp") {
-                // --- WhatsApp Flow ---
                 var msg = "New Enquiry from Website \n\n" +
                           "Namaste, I would like to enquire about the following products:\n\n" +
                           orderList + "\n" +
-                          "Total Estimate: " + total + "\n" +
+                          "Total Estimate: " + totalString + "\n" +
                           "---------------------------------\n" +
                           "Customer Details:\n" +
                           "Name: " + name + "\n" +
@@ -175,14 +180,12 @@
 
                 window.open("https://wa.me/917034199217?text=" + encodeURIComponent(msg), '_blank');
                 
-                // CLEAR DATA
                 localStorage.removeItem('padmaCart'); 
                 $("#enquiry-form")[0].reset();
                 renderCartTable();
                 showToast("Opening WhatsApp...", "success");
-
             } else {
-                // --- Email Flow ---
+                // Email Flow
                 var email = $("#cust-email").val();
                 var btn = $("#dynamic-submit-btn");
                 var oldText = btn.html();
@@ -190,7 +193,7 @@
 
                 $.ajax({
                     url: "https://script.google.com/macros/s/AKfycbz8ojFpzW0A1xpeQiYXECxDSCt54CVpbu9QKJgR4dpbvrMXUyOW7qLt1VJT6de_dcJh/exec",
-                    data: { form_type: 'order', name: name, location: loc, email: email, total_amount: total, order_details: orderList },
+                    data: { form_type: 'order', name: name, location: loc, email: email, total_amount: totalString, order_details: orderList },
                     method: "POST",
                     success: function(res) {
                         if (res.result === "success") {
@@ -212,7 +215,7 @@
             }
         });
 
-        // 3. Render Table (Needs products from shop.js)
+        // 3. Render Table
         function renderCartTable() {
             const tbody = document.getElementById('cart-table-body');
             const totalEl = document.getElementById('grand-total');
@@ -227,7 +230,6 @@
             }
 
             cart.forEach((item, index) => {
-                // 'products' is available because we linked shop.js
                 const p = products.find(x => x.id === item.id);
                 if(p) {
                     const lineTotal = p.price * item.qty;
@@ -236,6 +238,7 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
+                                <img src="${p.images[0]}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; margin-right: 15px;">
                                 <div><h6 class="mb-0 font-weight-bold">${p.name}</h6><small class="text-muted">₹${p.price}</small></div>
                             </div>
                         </td>
@@ -255,7 +258,6 @@
             if(totalEl) totalEl.innerText = "₹" + grandTotal;
         }
 
-        // Expose helpers globally for inline onclicks
         window.updateCartQty = function(id, val) {
             let qty = parseInt(val); if(qty<1) qty=1;
             let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];

@@ -385,6 +385,7 @@
     right: 20px;
     bottom: 25px;
     z-index: 99999;
+    transition: bottom 0.3s ease; 
 }
 
 .whatsapp-btn {
@@ -423,4 +424,134 @@
     z-index: 100000;
 }
 
+/* ==========================================================================
+   6. MODAL STYLING
+   ========================================================================== */
+.modal-content {
+    border: none;
+    border-radius: var(--shop-radius-lg);
+    box-shadow: var(--shop-shadow-md);
+    overflow: hidden;
+}
 
+.modal-header {
+    border-bottom: 1px solid #f1f1f1;
+    background-color: var(--shop-bg-light);
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-weight: 700;
+    color: var(--shop-primary-dark);
+}
+
+.modal-body {
+    padding: 2rem;
+    color: var(--shop-text-dark);
+    line-height: 1.7;
+}
+
+.close {
+    opacity: 0.5;
+    transition: 0.3s;
+    outline: none !important;
+}
+
+.close:hover { opacity: 1; transform: rotate(90deg); }
+
+/* ==========================================================================
+   7. MOBILE CART TRANSFORM (The Mobile Fix)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Hide the Table Header */
+    .cart-table-head {
+        display: none;
+    }
+
+    /* 2. Turn Rows into "Cards" */
+    .table tbody tr {
+        display: block;
+        background: #fff;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border: 1px solid #f1f1f1;
+        padding: 15px;
+        position: relative; /* Allows absolute positioning of elements inside */
+    }
+
+    /* 3. Make Cells display as blocks */
+    .table tbody td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 5px 0;
+        border: none; /* Remove table lines */
+    }
+
+    /* --- SPECIFIC CELL STYLING --- */
+
+    /* Product Name (Top Left) */
+    .table tbody td:nth-child(1) {
+        padding-right: 40px; /* Space for the remove button */
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    
+    /* Unit Price (Hide it) */
+    .table tbody td:nth-child(2) {
+        display: none; 
+    }
+
+    /* Quantity Input (Float Left) */
+    .table tbody td:nth-child(3) {
+        display: inline-block;
+        width: auto;
+    }
+    .table tbody td:nth-child(3):before {
+        content: "Qty: ";
+        font-weight: 600;
+        color: #888;
+        margin-right: 5px;
+    }
+
+    /* Subtotal (Float Right) */
+    .table tbody td:nth-child(4) {
+        display: inline-block;
+        float: right;
+        width: auto;
+        font-size: 1.2rem;
+        margin-top: 5px;
+        font-weight: 800;
+        color: var(--shop-primary);
+    }
+
+    /* Remove Button (Absolute Position - Top Right Corner) */
+    .table tbody td:nth-child(5) {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: auto;
+        padding: 0;
+    }
+    
+    /* Adjust input and button size for mobile */
+    .cart-qty-input {
+        width: 60px;
+        padding: 5px;
+    }
+
+    .btn-remove {
+        width: 30px;
+        height: 30px;
+        line-height: 30px; 
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Move WhatsApp icon UP so it doesn't get covered by Sticky Cart */
+    #whatsapp-container {
+        bottom: 90px;
+    }
+}
