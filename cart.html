@@ -61,15 +61,25 @@
                 </thead>
                 <tbody id="cart-table-body"></tbody>
             </table>
-            <div class="p-4 text-right bg-white border-top">
+            <div class="p-4 text-left text-md-center bg-white border-top">
                 <h4 style="color:#2d3436; font-weight:700;">Total Estimate: <span id="grand-total" style="color:#2389c4;">₹0</span></h4>
             </div>
         </div>
 
-        <div class="row justify-content-center">
+     <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card enquiry-card p-4">
                     <div class="card-body">
+                        
+                        <div class="text-center mb-4 border-bottom pb-3">
+                            <h4 style="font-weight:700; color:#2389c4;">Send Order Enquiry</h4>
+                            <p class="text-muted mt-2" style="font-size: 15px; line-height: 1.6;">
+                                <i class="fa-solid fa-circle-info text-info mr-1"></i> 
+                                Ready to proceed? Please fill in your details below to send this order list to us via <strong>WhatsApp</strong> or <strong>Email</strong>.
+                                <br>
+                                <span style="font-size: 14px; color: #666;">(We will contact you shortly to confirm stock availability and payment details.)</span>
+                            </p>
+                        </div>
                         <form id="enquiry-form">
                             <div class="row">
                                 <div class="col-md-6 mb-3"><input type="text" id="cust-name" name="name" class="form-control" required placeholder="Your Name" style="padding: 12px; border-radius: 8px;"></div>
@@ -85,12 +95,18 @@
                             <div class="row" id="email-field-container" style="display: none;">
                                 <div class="col-md-12 mb-4"><input type="email" id="cust-email" name="email" class="form-control" placeholder="Your Email Address" style="padding: 12px; border-radius: 8px;"></div>
                             </div>
-                            <button type="submit" id="dynamic-submit-btn" class="btn btn-success w-100 py-3" style="font-weight:600; border-radius:10px; transition: all 0.3s;"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
+                            
+                            <button type="submit" id="dynamic-submit-btn" class="btn btn-success w-100 py-3" style="font-weight:600; border-radius:10px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);">
+                                <i class="fa-brands fa-whatsapp"></i> Send Enquiry via WhatsApp
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
     <div id="custom-toast">Notification Message</div>
@@ -106,11 +122,20 @@
     <script src="assets/js/whatsApp.js"></script>
     <script src="assets/js/shop.js"></script>
 
-    <script>
+<script>
     $(document).ready(function() {
-        renderCartTable(); // Initial Render
 
-        // 1. Toggle Form Logic
+        // --- 1. SAFE INITIALIZATION ---
+        // Check if product data is loaded before rendering
+        if (typeof products !== 'undefined') {
+            renderCartTable();
+        } else {
+            console.error("Product database failed to load. Check assets/js/shop.js");
+            // Optional: You could hide the table or show an error message here
+            $("#cart-table-body").html('<tr><td colspan="5" class="text-danger text-center py-4">Error loading products. Please refresh the page.</td></tr>');
+        }
+
+        // --- 2. TOGGLE FORM LOGIC ---
         $("#cust-contact-method").change(function() {
             var method = $(this).val();
             var btn = $("#dynamic-submit-btn");
@@ -130,23 +155,56 @@
             }
         });
 
-        // 2. Submit Logic
+        // --- 3. SUBMIT LOGIC (Full) ---
         $("#enquiry-form").submit((e) => {
             e.preventDefault();
 
-            // DATA DRIVEN GENERATION (Fixes formatting bugs)
-            var cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            // A. Get Values
+            var name = $("#cust-name").val().trim();
+            var loc = $("#cust-location").val().trim();
+            var method = $("#cust-contact-method").val();
+            var email = $("#cust-email").val().trim();
+
+            // B. Validation (Updated Regex)
+            // Allows: Letters, Spaces, Dots, Hyphens, Apostrophes
+            var letterOnlyRegex = /^[a-zA-Z\s\.\-\']+$/; 
+
+            if (name === "" || !letterOnlyRegex.test(name)) {
+                showToast("Name contains invalid characters (numbers not allowed).", "error");
+                return;
+            }
+            if (name.length < 3) {
+                showToast("Name is too short.", "error");
+                return;
+            }
+            if (loc === "" || !letterOnlyRegex.test(loc)) {
+                showToast("Location must contain letters only.", "error");
+                return;
+            }
+
+            // Email Validation
+            if (method === "Email") {
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email === "" || !emailRegex.test(email)) {
+                    showToast("Please enter a valid email address.", "error");
+                    return;
+                }
+            }
+
+            // C. Check Cart Content
+            var cart = JSON.parse(sessionStorage.getItem('padmaCart')) || [];
             if(cart.length === 0) {
                 showToast("Your cart is empty!", "error");
                 return;
             }
 
-            // Ensure products are loaded from shop.js
+            // Safety check for products during submit
             if (typeof products === 'undefined') {
-                showToast("Error loading product data.", "error");
+                showToast("System Error: Product data missing.", "error");
                 return;
             }
 
+            // D. Generate Message
             var orderList = "";
             var grandTotal = 0;
             var counter = 1;
@@ -156,18 +214,16 @@
                 if (p) {
                     var lineTotal = p.price * item.qty;
                     grandTotal += lineTotal;
-                    // Format: 1. Product Name (x2) - ₹200
                     orderList += `${counter}. ${p.name} (x${item.qty}) - ₹${lineTotal}\n`;
                     counter++;
                 }
             });
 
-            var method = $("#cust-contact-method").val();
-            var name = $("#cust-name").val();
-            var loc = $("#cust-location").val();
             var totalString = "₹" + grandTotal;
 
+            // E. Send Data
             if (method === "WhatsApp") {
+                // WhatsApp Flow
                 var msg = "New Enquiry from Website \n\n" +
                           "Namaste, I would like to enquire about the following products:\n\n" +
                           orderList + "\n" +
@@ -180,13 +236,14 @@
 
                 window.open("https://wa.me/917034199217?text=" + encodeURIComponent(msg), '_blank');
                 
-                localStorage.removeItem('padmaCart'); 
+                // Success Actions
+                sessionStorage.removeItem('padmaCart'); 
                 $("#enquiry-form")[0].reset();
-                renderCartTable();
+                renderCartTable(); // This will now update the badge too!
                 showToast("Opening WhatsApp...", "success");
+
             } else {
                 // Email Flow
-                var email = $("#cust-email").val();
                 var btn = $("#dynamic-submit-btn");
                 var oldText = btn.html();
                 btn.html('<i class="fa-solid fa-spinner fa-spin"></i> Sending...').prop("disabled", true);
@@ -198,9 +255,9 @@
                     success: function(res) {
                         if (res.result === "success") {
                             showToast("Order Sent! Check Email.", "success");
-                            localStorage.removeItem('padmaCart');
+                            sessionStorage.removeItem('padmaCart');
                             $("#enquiry-form")[0].reset();
-                            renderCartTable();
+                            renderCartTable(); // Updates UI and Badge
                             $("#cust-contact-method").val("WhatsApp").trigger("change");
                         } else {
                             showToast("Server Error", "error");
@@ -215,60 +272,72 @@
             }
         });
 
-        // 3. Render Table
+        // --- 4. RENDER TABLE (Fixed) ---
         function renderCartTable() {
             const tbody = document.getElementById('cart-table-body');
             const totalEl = document.getElementById('grand-total');
-            let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            let cart = JSON.parse(sessionStorage.getItem('padmaCart')) || [];
             let html = '';
             let grandTotal = 0;
 
             if(cart.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="5" class="text-center py-5"><h5 class="text-muted">Cart is empty</h5><a href="shop.html" class="btn btn-primary mt-3" style="background-color:#2389c4; border:none;">Start Shopping</a></td></tr>';
                 if(totalEl) totalEl.innerText = "₹0";
+                
+                // UPDATE BADGE even if empty
+                if (typeof updateCartUI === "function") updateCartUI();
                 return;
             }
 
             cart.forEach((item, index) => {
-                const p = products.find(x => x.id === item.id);
-                if(p) {
-                    const lineTotal = p.price * item.qty;
-                    grandTotal += lineTotal;
-                    html += `
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="${p.images[0]}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; margin-right: 15px;">
-                                <div><h6 class="mb-0 font-weight-bold">${p.name}</h6><small class="text-muted">₹${p.price}</small></div>
-                            </div>
-                        </td>
-                        <td class="text-center font-weight-bold">₹${p.price}</td>
-                        <td class="text-center">
-                             <input type="number" class="cart-qty-input" value="${item.qty}" min="1" 
-                                    onchange="updateCartQty(${item.id}, this.value)" style="width:60px; text-align:center; border:1px solid #ddd; border-radius:5px;">
-                        </td>
-                        <td class="text-center font-weight-bold" style="color:#2389c4">₹${lineTotal}</td>
-                        <td class="text-center">
-                            <button class="btn-remove" onclick="removeFromCart(${index})" style="border:none; background:#fee; color:red; width:30px; height:30px; border-radius:50%;"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>`;
+                if (typeof products !== 'undefined') {
+                    const p = products.find(x => x.id === item.id);
+                    if(p) {
+                        const lineTotal = p.price * item.qty;
+                        grandTotal += lineTotal;
+                        html += `
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="${p.images[0]}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; margin-right: 15px;">
+                                    <div><h6 class="mb-0 font-weight-bold">${p.name}</h6><small class="text-muted">₹${p.price}</small></div>
+                                </div>
+                            </td>
+                            <td class="text-center font-weight-bold">₹${p.price}</td>
+                            <td class="text-center">
+                                <input type="number" class="cart-qty-input" value="${item.qty}" min="1" 
+                                onblur="if(this.value == '' || this.value == '0') { this.value = 1; } updateCartQty(${item.id}, this.value)">
+                            </td>
+                            <td class="text-center font-weight-bold" style="color:#2389c4">₹${lineTotal}</td>
+                            <td class="text-center">
+                                <button class="btn-remove" onclick="removeFromCart(${index})"><i class="fa fa-times"></i></button>
+                            </td>
+                        </tr>`;
+                    }
                 }
             });
+            
             tbody.innerHTML = html;
             if(totalEl) totalEl.innerText = "₹" + grandTotal;
+
+            // SYNC HEADER BADGE
+            if (typeof updateCartUI === "function") {
+                updateCartUI();
+            }
         }
 
+        // --- 5. HELPERS ---
         window.updateCartQty = function(id, val) {
             let qty = parseInt(val); if(qty<1) qty=1;
-            let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            let cart = JSON.parse(sessionStorage.getItem('padmaCart')) || [];
             let item = cart.find(x => x.id === id);
-            if(item) { item.qty = qty; localStorage.setItem('padmaCart', JSON.stringify(cart)); renderCartTable(); }
+            if(item) { item.qty = qty; sessionStorage.setItem('padmaCart', JSON.stringify(cart)); renderCartTable(); }
         };
 
         window.removeFromCart = function(index) {
-            let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+            let cart = JSON.parse(sessionStorage.getItem('padmaCart')) || [];
             cart.splice(index, 1);
-            localStorage.setItem('padmaCart', JSON.stringify(cart));
+            sessionStorage.setItem('padmaCart', JSON.stringify(cart));
             renderCartTable();
         };
 
@@ -278,6 +347,11 @@
             setTimeout(()=>t.removeClass("show"), 3000);
         }
     });
-    </script>
+</script>
+
+
+
+
+
 </body>
 </html>

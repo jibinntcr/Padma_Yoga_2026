@@ -149,12 +149,12 @@ function addToCartOverlay(id) {
     if (qty < 1) qty = 1;
 
     // LOCAL STORAGE: 'padmaCart'
-    let cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+    let cart = JSON.parse(sessionStorage.getItem('padmaCart')) || [];
     const existingItem = cart.find(item => item.id === id);
     if (existingItem) existingItem.qty += qty;
     else cart.push({ id: id, qty: qty });
     
-    localStorage.setItem('padmaCart', JSON.stringify(cart));
+    sessionStorage.setItem('padmaCart', JSON.stringify(cart));
 
     // UI Feedback
     const overlay = document.getElementById(`overlay-${id}`);
@@ -175,7 +175,7 @@ function addToCartOverlay(id) {
 }
 
 function updateCartUI() {
-    const cart = JSON.parse(localStorage.getItem('padmaCart')) || [];
+    const cart = JSON.parse(sessionStorage.getItem('padmaCart')) || [];
     const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
     
     // 1. Badge

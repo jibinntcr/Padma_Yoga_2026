@@ -550,6 +550,8 @@
         margin: 0;
     }
 
+    
+
     /* Move WhatsApp icon UP so it doesn't get covered by Sticky Cart */
     #whatsapp-container {
         bottom: 90px;
